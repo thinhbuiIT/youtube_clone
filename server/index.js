@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
-// import commentRoutes from "./routes/comments.js";
+import commentRoutes from "./routes/comments.js";
 import videoRoutes from "./routes/videos.js";
 
 const app = express();
@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
-// app.use("/api/comment", commentRoutes);
+app.use("/api/comments", commentRoutes);
 app.use("/api/videos", videoRoutes);
 
 app.use((err, req, res, next) => {
@@ -37,7 +37,7 @@ app.use((err, req, res, next) => {
     })
 })
 
-app.listen(3000, () => {
+app.listen(4000, () => {
     connect();
     console.log("server is running...")
 })
